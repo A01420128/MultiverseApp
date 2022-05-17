@@ -19,7 +19,7 @@ class CameoAdapter(private var cameos: List<Cameo>) :
     fun filterCameos(cameos: List<Cameo>, universe: String){
         val filtered = mutableListOf<Cameo>()
         for (cameo in cameos){
-            if (cameo.universe == universe) filtered.add(cameo)
+            if (cameo.universe!!.startsWith(universe)) filtered.add(cameo)
         }
         this.cameos = filtered
     }

@@ -131,16 +131,15 @@ class CameosFragment : Fragment(), android.widget.SearchView.OnQueryTextListener
     }
 
     override fun onQueryTextSubmit(query: String?): Boolean {
-        if(!query.isNullOrEmpty()){
-            adapter.filterCameos(cameos, query)
-            adapter.notifyDataSetChanged()
-        }
-        binding.searchBar.setQuery("", false)
         binding.searchBar.clearFocus()
         return true
     }
 
     override fun onQueryTextChange(newText: String?): Boolean {
+        if(!newText.isNullOrEmpty()){
+            adapter.filterCameos(cameos, newText)
+            adapter.notifyDataSetChanged()
+        }
         return true
     }
 
