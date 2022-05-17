@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/splashscreenFragment">
+
+    <fragment
+        android:id="@+id/splashscreenFragment"
+        android:name="mx.tec.Multiverse.splashscreen.SplashscreenFragment"
+        android:label="SplashscreenFragment" >
+        <action
+            android:id="@+id/action_splashscreenFragment_to_cameosFragment"
+            app:destination="@id/cameosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cameosFragment"
+        android:name="mx.tec.Multiverse.cameos.CameosFragment"
+        android:label="fragment_cameos"
+        tools:layout="@layout/fragment_cameos" />
+</navigation>
