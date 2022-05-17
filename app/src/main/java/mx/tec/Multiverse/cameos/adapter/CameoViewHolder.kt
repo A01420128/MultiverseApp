@@ -22,7 +22,7 @@ class CameoViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
                 .into(this.binding.image)
         }
         else{
-            this.binding.image.setImageResource(R.drawable.ic_launcher_background)
+            this.binding.image.setImageResource(R.drawable.ic_tva)
         }
     }
 }

@@ -64,11 +64,11 @@ class CameosFragment : Fragment(), android.widget.SearchView.OnQueryTextListener
         binding.cameos.adapter = adapter
         binding.cameos.setListener(object: SwipeLeftRightCallback.Listener {
             override fun onSwipedLeft(position: Int) {
-                binding.cameos.adapter?.notifyDataSetChanged()
+                removeCameo(position)
             }
 
             override fun onSwipedRight(position: Int) {
-                removeCameo(position)
+                binding.cameos.adapter?.notifyDataSetChanged()
             }
 
         })

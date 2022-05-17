@@ -11,7 +11,9 @@
         android:label="SplashscreenFragment" >
         <action
             android:id="@+id/action_splashscreenFragment_to_cameosFragment"
-            app:destination="@id/cameosFragment" />
+            app:destination="@id/cameosFragment"
+            app:popUpTo="@id/splashscreenFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/cameosFragment"
