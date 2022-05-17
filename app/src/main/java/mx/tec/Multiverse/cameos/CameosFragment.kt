@@ -56,11 +56,11 @@ class CameosFragment : Fragment() {
         binding.cameos.adapter = adapter
         binding.cameos.setListener(object: SwipeLeftRightCallback.Listener {
             override fun onSwipedLeft(position: Int) {
-                 removeCameo(position)
+                binding.cameos.adapter?.notifyDataSetChanged()
             }
 
             override fun onSwipedRight(position: Int) {
-                binding.cameos.adapter?.notifyDataSetChanged()
+                removeCameo(position)
             }
 
         })
@@ -120,5 +120,6 @@ class CameosFragment : Fragment() {
         }
 
     }
+
 
 }
