@@ -69,11 +69,11 @@ class CameoCaptureDialog ( private  val onSubmitClickListener: (Cameo) -> Unit):
         cameraLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
                 photo = result.data?.extras?.get("data") as Bitmap
-                this.binding.cameoImage.setImageBitmap(photo)
+                this.binding.imageButton.setImageBitmap(photo)
             }
         }
 
-        this.binding.takePictureButton.setOnClickListener {
+        this.binding.imageButton.setOnClickListener {
             val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             cameraLauncher.launch(cameraIntent)
         }

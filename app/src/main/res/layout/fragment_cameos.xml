@@ -23,10 +23,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search_bar"
-        app:leftBgColor="@color/red"
-        app:leftImage="@android:drawable/ic_lock_lock"
-        app:leftText="Delete"
         app:textColor="@android:color/white"
+        app:rightBgColor="@color/red"
+        app:rightImage="@drawable/ic_baseline_delete_24"
+        app:rightText="Delete"
         app:textSize="20sp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

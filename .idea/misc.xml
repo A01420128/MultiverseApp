@@ -3,12 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.19610507246376813" />
-        <entry key="app/src/main/res/layout/capture_cameo.xml" value="0.19610507246376813" />
-        <entry key="app/src/main/res/layout/cell_cameo.xml" value="0.19610507246376813" />
-        <entry key="app/src/main/res/layout/fragment_cameos.xml" value="0.19610507246376813" />
-        <entry key="app/src/main/res/layout/fragment_register.xml" value="0.19610507246376813" />
-        <entry key="app/src/main/res/layout/fragment_splashscreen.xml" value="0.13697916666666668" />
+        <entry key="app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.146" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.146" />
+        <entry key="app/src/main/res/drawable/ic_tva.xml" value="0.9415886840820313" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.15833333333333333" />
+        <entry key="app/src/main/res/layout/capture_cameo.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/cell_cameo.xml" value="0.3806361217372464" />
+        <entry key="app/src/main/res/layout/fragment_cameos.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_splashscreen.xml" value="0.1" />
       </map>
     </option>
   </component>

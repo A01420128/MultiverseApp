@@ -11,11 +11,11 @@
         <KeyFrameSet>
             <KeyAttribute
                 motion:motionTarget="@+id/appicon"
-                motion:framePosition="0"
+                motion:framePosition="20"
                 android:scaleX="0.5" />
             <KeyAttribute
                 motion:motionTarget="@+id/appicon"
-                motion:framePosition="0"
+                motion:framePosition="20"
                 android:scaleY="0.5" />
             <KeyAttribute
                 motion:motionTarget="@+id/appicon"
@@ -45,6 +45,15 @@
     </Transition>
 
     <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/appicon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintLeft_toLeftOf="parent"
+            motion:layout_constraintRight_toRightOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:transitionEasing="cubic(0.67,0.15,0.8,0.8)" />
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end">
