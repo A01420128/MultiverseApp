@@ -16,6 +16,14 @@ class CameoAdapter(private var cameos: List<Cameo>) :
     fun setCameos(cameos: List<Cameo>){
         this.cameos = cameos
     }
+    fun filterCameos(cameos: List<Cameo>, universe: String){
+        val filtered = mutableListOf<Cameo>()
+        for (cameo in cameos){
+            if (cameo.universe!!.startsWith(universe)) filtered.add(cameo)
+        }
+        this.cameos = filtered
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CameoViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         return CameoViewHolder(layoutInflater.inflate(

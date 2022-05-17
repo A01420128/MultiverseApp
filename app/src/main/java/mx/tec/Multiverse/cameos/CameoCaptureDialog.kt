@@ -45,16 +45,22 @@ class CameoCaptureDialog ( private  val onSubmitClickListener: (Cameo) -> Unit):
             val name = binding.nameInput.text.toString()
             val universe = binding.universeInput.text.toString()
             val gender = binding.genderInput.text.toString()
-            if (photo != null) {
-                uploadPhotoToFirebase { imageUrl ->
-                    val cameo = Cameo("", name, universe, gender, imageUrl)
+
+            if (name=="" || universe=="" || gender==""){
+                Toast.makeText(context, "Please fill all inputs correctly", Toast.LENGTH_SHORT).show()
+            }
+            else {
+                if (photo != null) {
+                    uploadPhotoToFirebase { imageUrl ->
+                        val cameo = Cameo("", name, universe, gender, imageUrl)
+                        onSubmitClickListener.invoke(cameo)
+                        dismiss()
+                    }
+                } else {
+                    val cameo = Cameo("", name, universe, gender)
                     onSubmitClickListener.invoke(cameo)
                     dismiss()
                 }
-            } else {
-                val cameo = Cameo("", name, universe, gender)
-                onSubmitClickListener.invoke(cameo)
-                dismiss()
             }
         }
     }

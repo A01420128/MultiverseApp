@@ -2,7 +2,6 @@ package mx.tec.Multiverse.cameos
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +9,8 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -20,9 +21,9 @@ import com.tsuryo.swipeablerv.SwipeLeftRightCallback
 import mx.tec.Multiverse.cameos.adapter.CameoAdapter
 import mx.tec.Multiverse.cameos.entities.Cameo
 import mx.tec.Multiverse.databinding.FragmentCameosBinding
-import java.util.*
 
-class CameosFragment : Fragment() {
+class CameosFragment : Fragment(), android.widget.SearchView.OnQueryTextListener,
+    SearchView.OnQueryTextListener {
     private lateinit var binding: FragmentCameosBinding
 
     private lateinit var cameos: List<Cameo>
@@ -47,6 +48,13 @@ class CameosFragment : Fragment() {
         initRecycler()
         initDatasource()
         initCameoCaptureDialog()
+        binding.searchBar.setOnQueryTextListener(this)
+        binding.searchBar.setOnCloseListener {
+            adapter.setCameos(cameos)
+            adapter.notifyDataSetChanged()
+            return@setOnCloseListener false
+        }
+
     }
 
     private fun initRecycler () {
@@ -56,11 +64,11 @@ class CameosFragment : Fragment() {
         binding.cameos.adapter = adapter
         binding.cameos.setListener(object: SwipeLeftRightCallback.Listener {
             override fun onSwipedLeft(position: Int) {
-                 removeCameo(position)
+                binding.cameos.adapter?.notifyDataSetChanged()
             }
 
             override fun onSwipedRight(position: Int) {
-                binding.cameos.adapter?.notifyDataSetChanged()
+                removeCameo(position)
             }
 
         })
@@ -74,7 +82,8 @@ class CameosFragment : Fragment() {
                     val cameo = dbObj.getValue(Cameo::class.java)
                     cameosList.add(cameo!!)
                 }
-                adapter.setCameos(cameosList)
+                cameos = cameosList
+                adapter.setCameos(cameos)
                 adapter.notifyDataSetChanged()
             }
 
@@ -119,6 +128,22 @@ class CameosFragment : Fragment() {
             Toast.makeText(this.context, "Failed to errase cameo from firebase", Toast.LENGTH_LONG ).show()
         }
 
+    }
+
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        binding.searchBar.clearFocus()
+        return true
+    }
+
+    override fun onQueryTextChange(newText: String?): Boolean {
+        if(!newText.isNullOrEmpty()){
+            adapter.filterCameos(cameos, newText)
+            adapter.notifyDataSetChanged()
+        } else {
+            adapter.setCameos(cameos)
+            adapter.notifyDataSetChanged()
+        }
+        return true
     }
 
 }
