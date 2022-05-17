@@ -139,6 +139,9 @@ class CameosFragment : Fragment(), android.widget.SearchView.OnQueryTextListener
         if(!newText.isNullOrEmpty()){
             adapter.filterCameos(cameos, newText)
             adapter.notifyDataSetChanged()
+        } else {
+            adapter.setCameos(cameos)
+            adapter.notifyDataSetChanged()
         }
         return true
     }
