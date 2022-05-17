@@ -79,4 +79,7 @@ dependencies {
 
     // Swipable cells.
     implementation 'com.github.tsuryo:Swipeable-RecyclerView:1.1'
+
+    // Picasso
+    implementation 'com.squareup.picasso:picasso:2.5.2'
 }

@@ -1,12 +1,11 @@
 package mx.tec.Multiverse.splashscreen
 
-import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.constraintlayout.motion.widget.MotionLayout
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import mx.tec.Multiverse.R
 import mx.tec.Multiverse.databinding.FragmentSplashscreenBinding
