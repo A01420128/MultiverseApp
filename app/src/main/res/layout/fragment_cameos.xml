@@ -7,6 +7,14 @@
     android:layout_height="match_parent"
     tools:context=".cameos.CameosFragment">
 
+    <SearchView
+        android:id="@+id/search_bar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.tsuryo.swipeablerv.SwipeableRecyclerView
         android:id="@+id/cameos"
         android:layout_width="0dp"
@@ -14,13 +22,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_bar"
         app:leftBgColor="@color/red"
         app:leftImage="@android:drawable/ic_lock_lock"
         app:leftText="Delete"
-        app:rightBgColor="@color/blue"
-        app:rightImage="@android:drawable/ic_menu_delete"
-        app:rightText="Read"
         app:textColor="@android:color/white"
         app:textSize="20sp" />
 

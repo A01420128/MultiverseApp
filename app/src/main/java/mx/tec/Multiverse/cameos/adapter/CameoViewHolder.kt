@@ -1,11 +1,9 @@
 package mx.tec.Multiverse.cameos.adapter
 
-import android.graphics.drawable.Drawable
 import android.view.View
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.squareup.picasso.Picasso
+import mx.tec.Multiverse.R
 import mx.tec.Multiverse.cameos.entities.Cameo
 import mx.tec.Multiverse.databinding.CellCameoBinding
 
@@ -22,6 +20,9 @@ class CameoViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
                 .centerCrop()
                 .resize(120,120)
                 .into(this.binding.image)
+        }
+        else{
+            this.binding.image.setImageResource(R.drawable.ic_launcher_background)
         }
     }
 }
